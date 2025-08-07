@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOO ABOO PTY (LTD) - Steel Structures & Security Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+       /* .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #ff6b35;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🏗️";
+            font-size: 1.8rem;
+        }*/
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .logo img {
+            height: 60px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><g opacity="0.1"><path d="M100 100h200v400h-200z" fill="%23fff"/><path d="M400 50h300v500h-300z" fill="%23fff"/><path d="M800 150h250v300h-250z" fill="%23fff"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #f8f9fa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            height: 500px;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            color: #ff6b35;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgb(251, 245, 245);
+            
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f23;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a1a2e;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+   
+   <div class="logo">
+    
+    Aboo Aboo PTY (LTD)
+  </div>
+    <!-- Header -->
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                <img src="logo.png" alt="Aboo Aboo Logo">
+                <span>ABOO ABOO PTY (LTD)</span>
+            </div>
+
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu" id="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Complete Steel & Security Solutions</h1>
+                <p>Professional steel structures, security systems, and aluminum products. From roller shutters to steel palisades, we secure and build your future.</p>
+                <a href="#contact" class="cta-button">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Products & Services</h2>
+            <p class="section-subtitle">Complete range of steel structures, security solutions, and aluminum products for residential and commercial applications</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Security Solutions</h3>
+                    <p>Roller shutters, burglar proofing, security doors & gates, expandable gates, and comprehensive security systems for complete protection.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚪</div>
+                    <h3>Gates & Access Control</h3>
+                    <p>Sliding gates, pedestrian gates, gate motors, and automated access solutions with professional installation and maintenance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Steel Structures</h3>
+                    <p>Custom steel structures, steel works, and professional fabrication services for commercial and residential projects.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏘️</div>
+                    <h3>Fencing Solutions</h3>
+                    <p>Clear view fencing, concrete palisades, steel palisades, and concrete fencing (stop nonsense) for perimeter security.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>Aluminum Products</h3>
+                    <p>Aluminum sliding doors, pivot doors, windows, and complete aluminum door systems with modern designs and durability.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Garage Solutions</h3>
+                    <p>Garage doors, garage door motors, and automated garage systems with remote control and safety features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <p class="section-subtitle">Showcasing our expertise in steel structure construction</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">Roller Shutter Installation</div>
+                    <div class="project-content">
+                        <h3>Commercial Roller Shutters</h3>
+                        <p>Heavy-duty roller shutters for warehouse and retail </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Security Gate System</div>
+                    <div class="project-content">
+                        <h3>Automated Sliding Gates</h3>
+                        <p>Commercial sliding gate with access control, intercom system, and backup power for 24/7 security operations.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Steel Palisade Fencing</div>
+                    <div class="project-content">
+                        <h3>Perimeter Security Fencing</h3>
+                        <p>Steel palisade fencing installation .</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Aluminum Door Systems</div>
+                    <div class="project-content">
+                        <h3>Modern Aluminum Doors</h3>
+                        <p>Contemporary aluminum sliding and pivot doors .</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Burglar Proofing</div>
+                    <div class="project-content">
+                        <h3>Residential Security Bars</h3>
+                        <p>Custom burglar proofing for windows and doors with aesthetic designs that don't compromise on security.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">Concrete Palisades</div>
+                    <div class="project-content">
+                        <h3>Precast Concrete Fencing</h3>
+                        <p>Durable concrete palisade walls.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About ABOO ABOO PTY (LTD)</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>ABOO ABOO PTY (LTD) is your trusted partner for comprehensive steel structures and security solutions. We specialize in a wide range of products including roller shutters, security gates, steel structures, fencing solutions, and aluminum products.</p>
+                    
+                    <p>Our extensive product range covers everything from burglar proofing and security doors to automated gate systems and garage door motors. We also provide high-quality aluminum sliding doors, pivot doors, and windows, along with robust fencing solutions including clear view fencing, concrete palisades, and steel palisades.</p>
+                    
+                    <p>With professional installation, reliable service, and competitive pricing, we ensure your property is secure and your projects are completed to the highest standards. Our experienced team is committed to delivering quality workmanship and exceptional customer service across all our specialized areas.</p>
+                </div>
+               <div class="about-image">
+    <img src="logo.png" alt="Steel Construction & Security" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+</div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Product Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Quality Guarantee</div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Ready to secure your property or start your steel project? Contact us today for professional advice and competitive quotes.</p>
+                    
+                    <div class="contact-item">
+                        
+                       <iframe
+                        src="https://www.google.com/maps?q=Limpopo,+South+Africa&output=embed"
+                        width="100%"
+                        height="250"
+                        style="border:0; border-radius: 10px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                        </iframe>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📞</span>
+                        <a href="tel:+27723198786">072 319 8786</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📞</span>
+                        <a href="tel:+27735045637">073 504 5637</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">📱</span>
+                        <a href="tel:+27723327519">072 332 7519</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">✉️</span>
+                       <a href="mailto:abooabooptyltd@gmail.com">abooabooptyltd@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-icon">🕒</span>
+                        <span>Mon-Fri: 7:30 AM - 4:00 PM | Sat - Sun: Closed</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Request a Quote</h3>
+                    <form id="contact-form" action="https://formspree.io/f/myzpwbzl" method="POST">
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="071 234 5678" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Product/Service Needed</label>
+                            <select id="product" name="product" style="width: 100%; padding: 12px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: black; font-size: 1rem;">
+                                <option value="">Select a product/service</option>
+                                <option value="roller-shutter">Roller Shutter</option>
+                                <option value="clear-view-fencing">Clear View Fencing</option>
+                                <option value="burglar-proofing">Burglar Proofing</option>
+                                <option value="steel-structure">Steel Structure</option>
+                                <option value="concrete-palisades">Concrete Palisades</option>
+                                <option value="security-doors">Security Doors</option>
+                                <option value="security-gates">Security Gates</option>
+                                <option value="sliding-gates">Sliding Gates</option>
+                                <option value="pedestrian-gates">Pedestrian Gates</option>
+                                <option value="aluminum-sliding-doors">Aluminum Sliding Doors</option>
+                                <option value="aluminum-pivot-doors">Aluminum Pivot Doors</option>
+                                <option value="aluminum-doors">Aluminum Doors</option>
+                                <option value="aluminum-windows">Aluminum Windows</option>
+                                <option value="gate-motors">Gate Motors</option>
+                                <option value="garage-door-motors">Garage Door Motors</option>
+                                <option value="garage-doors">Garage Doors</option>
+                                <option value="expandable-gates">Expandable Gates</option>
+                                <option value="concrete-fencing">Concrete Fencing (Stop Nonsense)</option>
+                                <option value="steel-palisades">Steel Palisades</option>
+                                <option value="steel-works">Steel Works</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your requirements - dimensions, location, timeline, etc."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FAQ-->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Do you offer free quotes?</h3>
+                    <p>Yes! Fill in our contact form and we’ll provide a free quote within 24 hours.</p>
+                </div>
+                    <div class="service-card">
+                    <h3>Which areas do you serve?</h3>
+                    <p>We serve the entire Limpopo region.</p>
+            </div>
+      <div class="service-card">
+                <h3>Do you install products or just supply them?</h3>
+                <p>We both supply and professionally install all our products.</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ABOO ABOO PTY (LTD). All rights reserved. Professional Installation • Quality Guaranteed • Competitive Pricing</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Form submission handler
+        /*document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Show success message
+            alert('Thank you for your inquiry! We will contact you within 24 hours to discuss your project.');
+            
+            // Reset form
+            this.reset();
+        });*/
+
+        // Highlight active navigation item
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
